@@ -5,10 +5,20 @@
  */
 package prog2.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author arran
  */
 public class LlistaRemuntadors {
+    
+    ArrayList <Remuntador> llistaRemuntadors;
+
+    public LlistaRemuntadors() {
+        this.llistaRemuntadors = new ArrayList();
+    }
+    
+    
     
 }

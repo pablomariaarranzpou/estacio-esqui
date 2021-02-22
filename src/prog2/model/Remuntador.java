@@ -13,7 +13,7 @@ public abstract class Remuntador {
     
     private String nom, sector, estat;
     private int límitVent;
-    private boolean sus_vis;
+    private boolean susceptible;
     
     public abstract String tipus();
     //public void actualitzaEstat(Meteo meteo){ }
@@ -50,12 +50,12 @@ public abstract class Remuntador {
         this.límitVent = límitVent;
     }
 
-    public boolean isSus_vis() {
-        return sus_vis;
+    public boolean isSusceptible() {
+        return susceptible;
     }
 
-    public void setSus_vis(boolean sus_vis) {
-        this.sus_vis = sus_vis;
+    public void setSusceptible(boolean susceptible) {
+        this.susceptible = susceptible;
     }
-    
+
 }
