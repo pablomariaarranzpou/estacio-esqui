@@ -87,9 +87,9 @@ public class Pista {
 
     @Override
     public String toString() {
-        return "Pista:" + nom + ", sector=" + sector + ", color=" + color + 
-                ", Estat Neu=" + estat_neu + ", Estat Pista=" + estat_pista +
-                ", longuitud=" + longuitud + ", Dependencies = "+ dependencies.toString();
+        return "Pista: " + nom + ", Sector: " + sector + ", Color: " + color + 
+                ", Estat Neu: " + estat_neu + ", Estat Pista: " + estat_pista +
+                ", Longuitud: " + longuitud + ", Dependencies: "+ dependencies.toString();
     }
     
     
