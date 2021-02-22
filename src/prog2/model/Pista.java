@@ -11,16 +11,15 @@ package prog2.model;
  */
 public class Pista {
     
-    private String nom, sector, color, longitud, estat_neu, estat_pista;
+    private String nom, sector, color, estat_neu, estat_pista;
+    private float longuitud;
     public void actualitzaEstat(){
         
     }
 public void afegirDependencia(Remuntador rm){
     
 }
-public void toString(){
-    
-}
+
 
     public String getNom() {
         return nom;
@@ -46,13 +45,15 @@ public void toString(){
         this.color = color;
     }
 
-    public String getLongitud() {
-        return longitud;
+    public float getLonguitud() {
+        return longuitud;
     }
 
-    public void setLongitud(String longitud) {
-        this.longitud = longitud;
+    public void setLonguitud(float longuitud) {
+        this.longuitud = longuitud;
     }
+
+
 
     public String getEstat_neu() {
         return estat_neu;

@@ -52,11 +52,21 @@ public class LlistaPistes {
                 llistarPistes.add(llistaPistes.get(i));
             }  
         }
-        return llistarPistes;
+        return llistarPistes.toString();
 
     }
 
     public float calculaKmsPistes(String estat) {
+        
+        ArrayList <Pista> llistarPistes = new ArrayList(numPistes);
+        float suma = 0;
+        
+        for (int i = 0; i < llistaPistes.size(); i++) {
+            if (llistaPistes.get(i).getEstat_neu().equals(estat) || llistaPistes.get(i).getEstat_pista().equals(estat) ) {
+                suma += llistarPistes.get(i).getLonguitud();
+            }  
+        }
+        return suma;
 
     }
 
