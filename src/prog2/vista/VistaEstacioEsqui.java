@@ -93,7 +93,7 @@ public class VistaEstacioEsqui {
             
             switch(opcionMenu) {
                 case M_Opcion_1_ListarPistas:
-                    estacio.getLlistaPistes().llistarPistes("tots");
+                    System.out.println(estacio.getLlistaPistes().llistarPistes("tots"));
                     break;
                 case M_Opcion_2_ListarPistasAbiertas:
                     estacio.getLlistaPistes().llistarPistes("oberta");
