@@ -11,11 +11,13 @@ package prog2.model;
  */
 public abstract class Remuntador {
     
+    private String nom, sector, estat;
+    private int límitVent;
+    private boolean sus_vis;
+    
     public abstract String tipus();
     public void actualitzaEstat(Meteo meteo){
         
     }
-    public void toString(){
-    
-    }
+
 }
