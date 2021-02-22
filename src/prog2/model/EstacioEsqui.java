@@ -17,14 +17,17 @@ public class EstacioEsqui {
     private LlistaRemuntadors llistaRemuntadors;
     private LlistaPistes llistaPistes;
 
-    public EstacioEsqui(String nomEstacio, int velocitatVent, String visibilitat) {
-        
+    public EstacioEsqui(String nomEstacio, int velocitatVent, String visibilitat) {       
+        if(velocitatVent < 0 || !(visibilitat.equals("Bona") && !(visibilitat.equals("Dolenta")))){
+            System.out.println("Dade no vàlides");
+        }else{
         this.nomEstacio = nomEstacio;
         this.vent = velocitatVent;
         this.visibilitat = visibilitat;
         this.meteo = new Meteo(visibilitat, vent);
         this.llistaRemuntadors = new LlistaRemuntadors();
         this.llistaPistes = new LlistaPistes();
+    }
     }
 
     public String getNomEstacio() {
@@ -40,7 +43,11 @@ public class EstacioEsqui {
     }
 
     public void setVisibilitat(String visibilitat) {
+        if(!(visibilitat.equals("Bona") && !(visibilitat.equals("Dolenta")))){
+            System.out.println("Dade no vàlides");
+        }else{
         this.visibilitat = visibilitat;
+        }
     }
 
     public int getVent() {
@@ -48,7 +55,11 @@ public class EstacioEsqui {
     }
 
     public void setVent(int vent) {
+        if(vent < 0){
+            System.out.println("Dade no vàlides");
+        }else{
         this.vent = vent;
+        }
     }
 
     public Meteo getMeteo() {
