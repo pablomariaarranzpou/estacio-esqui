@@ -56,12 +56,11 @@ public class LlistaPistes {
     }
 
     public float calculaKmsPistes(String estat) {
-        
-        ArrayList <Pista> llistarPistes = new ArrayList(numPistes);
+
         float suma = 0;
         
         for (int i = 0; i < llistaPistes.size(); i++) {
-                suma += llistarPistes.get(i).getLonguitud(); 
+                suma += llistaPistes.get(i).getLonguitud(); 
         }
         return suma;
 
