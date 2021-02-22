@@ -37,7 +37,7 @@ public class Meteo {
 
     @Override
     public String toString() {
-        return "Meteo = " + "visibilitat=" + visibilitat + ", vent=" + vent + '}';
+        return "Meteo: " + "Visibilitat:" + visibilitat + " Velocitat del vent: " + vent + " km/h";
     }
     
     

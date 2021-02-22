@@ -66,4 +66,11 @@ public abstract class Remuntador {
         this.susceptible = susceptible;
     }
 
+    @Override
+    public String toString() {
+        return "Remuntador: "+ nom + ", Tipus: " + this.tipus() + ", Sector: " + sector + ", Estat" + estat;
+    }
+    
+    
+
 }

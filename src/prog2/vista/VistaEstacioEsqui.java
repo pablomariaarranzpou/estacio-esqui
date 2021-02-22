@@ -17,7 +17,7 @@ import prog2.model.EstacioEsqui;
 public class VistaEstacioEsqui {
     
     /* Atributs */
-    EstacioEsqui estacio;
+    private EstacioEsqui estacio;
     
     /* Constructor de la Vista*/
     public VistaEstacioEsqui(String nomEstacio, int velocitatVent, String visibilitat) {
@@ -27,6 +27,14 @@ public class VistaEstacioEsqui {
        
     /* Métodes */    
     //WRITE YOUR CODE HERE
+    
+    public String llistar_Pistas(String estat){
+        return estacio.getLlistaPistes().llistarPistes(estat);
+    }
+    
+    public String llistar_Remuntadors(String estat){
+        return estacio.getLlistaRemuntadors().llistarRemuntadors(estat);
+    }
         
     public void gestioEstacio(){
         // Creación de un objeto para leer el input desde el teclado
@@ -93,25 +101,36 @@ public class VistaEstacioEsqui {
             
             switch(opcionMenu) {
                 case M_Opcion_1_ListarPistas:
-                    System.out.println(estacio.getLlistaPistes().llistarPistes("Tots"));
+                    System.out.println(llistar_Pistas("Tots"));
                     break;
                 case M_Opcion_2_ListarPistasAbiertas:
-                    estacio.getLlistaPistes().llistarPistes("Oberta");
+                    System.out.println(llistar_Pistas("Oberta"));
                     break;
                 case M_Opcion_3_ListarPistasCerradas:
-                    estacio.getLlistaPistes().llistarPistes("Tancada");
+                    System.out.println(llistar_Pistas("Tancada"));
                     break;
                 case M_Opcion_4_ListarRemontadores:
-                    System.out.println(estacio.getLlistaRemuntadors().llistarRemuntadors("Tots"));
+                    System.out.println(llistar_Remuntadors("Tots"));
                     break;
                 case M_Opcion_5_ListarRemontadoresEnServicio:
-                    System.out.println(estacio.getLlistaRemuntadors().llistarRemuntadors("En Servei”"));
+                    System.out.println(llistar_Remuntadors("En Servei”"));
                     break;
                 case M_Opcion_6_ListarRemontadoresFueraServicio:
-                    System.out.println(estacio.getLlistaRemuntadors().llistarRemuntadors("Fora de Servei"));
+                    System.out.println(llistar_Remuntadors("Fora de Servei"));
                     break;
                 case M_Opcion_7_ModificarEstadoNieve:
-                    /// REVISAR!!!!!!!!!!!!!!!
+                    System.out.println("Que pista desitja modificar?");
+                    String nom = sc.next();
+                    System.out.println("A quin estat vol actualitzar?");
+                    String actualitzar = sc.next();
+                    
+                    if(estacio.getLlistaPistes().getPista(nom) != null){
+                        estacio.getLlistaPistes().getPista(nom).setEstat_neu(actualitzar);
+                        System.out.println("Estat de la neu actualitzat.");
+                    }else{
+                        System.out.println("Pista no trobada en aquesta estació");
+                    }
+                    
                     break;
                 case M_Opcion_8_CalcularTotalKms:
                     System.out.println("Seleccioni l` estat:");
