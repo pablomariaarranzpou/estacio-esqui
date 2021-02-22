@@ -93,22 +93,22 @@ public class VistaEstacioEsqui {
             
             switch(opcionMenu) {
                 case M_Opcion_1_ListarPistas:
-                    System.out.println(estacio.getLlistaPistes().llistarPistes("tots"));
+                    System.out.println(estacio.getLlistaPistes().llistarPistes("Tots"));
                     break;
                 case M_Opcion_2_ListarPistasAbiertas:
-                    estacio.getLlistaPistes().llistarPistes("oberta");
+                    estacio.getLlistaPistes().llistarPistes("Oberta");
                     break;
                 case M_Opcion_3_ListarPistasCerradas:
-                    estacio.getLlistaPistes().llistarPistes("tancada");
+                    estacio.getLlistaPistes().llistarPistes("Tancada");
                     break;
                 case M_Opcion_4_ListarRemontadores:
-                    System.out.println(estacio.getLlistaRemuntadors());
+                    System.out.println(estacio.getLlistaRemuntadors().llistarRemuntadors("Tots"));
                     break;
                 case M_Opcion_5_ListarRemontadoresEnServicio:
-                    // Put your code here
+                    System.out.println(estacio.getLlistaRemuntadors().llistarRemuntadors("En Servei”"));
                     break;
                 case M_Opcion_6_ListarRemontadoresFueraServicio:
-                    // Put your code here
+                    System.out.println(estacio.getLlistaRemuntadors().llistarRemuntadors("Fora de Servei"));
                     break;
                 case M_Opcion_7_ModificarEstadoNieve:
                     // Put your code here
@@ -117,7 +117,9 @@ public class VistaEstacioEsqui {
                     // Put your code here
                     break;
                 case M_Opcion_9_Modificar_Vent:
-                    // Put your code here
+                    System.out.println("Seleccioni la velocitat del vent:");
+                    estacio.getMeteo().setVent(sc.nextInt());
+                    System.out.println("Vent modificat correctament.");
                     break;
                case M_Opcion_10_Modificar_Visibilitat:
                    
