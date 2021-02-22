@@ -115,7 +115,7 @@ public class VistaEstacioEsqui {
                     break;
                 case M_Opcion_8_CalcularTotalKms:
                     System.out.println("Seleccioni l` estat:");
-                    System.out.println(estacio.getLlistaPistes().calculaKmsPistes(sc.next()));
+                    System.out.println("Distància total: " + estacio.getLlistaPistes().calculaKmsPistes(sc.next()) + " kms");
                     break;
                 case M_Opcion_9_Modificar_Vent:
                     System.out.println("Seleccioni la velocitat del vent:");

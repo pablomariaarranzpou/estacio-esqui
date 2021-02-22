@@ -14,9 +14,17 @@ public abstract class Remuntador {
     private String nom, sector, estat;
     private int límitVent;
     private boolean susceptible;
+
+    public Remuntador(String nom, String sector, String estat, int límitVent, boolean susceptible) {
+        this.nom = nom;
+        this.sector = sector;
+        this.estat = estat;
+        this.límitVent = límitVent;
+        this.susceptible = susceptible;
+    }
     
     public abstract String tipus();
-    //public void actualitzaEstat(Meteo meteo){ }
+    public void actualitzaEstat(Meteo meteo){ }
 
     public String getNom() {
         return nom;

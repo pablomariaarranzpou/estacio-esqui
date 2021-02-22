@@ -33,10 +33,8 @@ public class Pista {
     }
     
     public void afegirDependencia(Remuntador rm){
-    
+        this.dependencies.afegirRemuntador(rm);
     }
-
-
 
     public String getNom() {
         return nom;
@@ -93,8 +91,4 @@ public class Pista {
                 ", Longuitud: " + longuitud + ", Dependencies: "+ 
                 dependencies.toString();
     }
-    
-    
-
-
 }
