@@ -53,8 +53,6 @@ public void afegirDependencia(Remuntador rm){
         this.longuitud = longuitud;
     }
 
-
-
     public String getEstat_neu() {
         return estat_neu;
     }

@@ -11,14 +11,18 @@ import java.util.Scanner;
  *
  * @author ricardo.marques
  */
+
+import prog2.model.EstacioEsqui;
+
 public class VistaEstacioEsqui {
     
     /* Atributs */
-    //WRITE YOUR CODE HERE
+    EstacioEsqui estacio;
     
     /* Constructor de la Vista*/
     public VistaEstacioEsqui(String nomEstacio, int velocitatVent, String visibilitat) {
-        //WRITE YOUR CODE HERE
+        // Creem un nou objecte Estació Esqui
+        this.estacio = new EstacioEsqui(nomEstacio, velocitatVent, visibilitat);
     };
        
     /* Métodes */    
@@ -72,7 +76,7 @@ public class VistaEstacioEsqui {
     //   3. Bucle donde se trata la opcion seleccionada por el usuario
     public void gestioMenu(Scanner sc) {
         // Creación del objeto que representa el menu. El primer argumento del contructor es el nombre del menu
-        Menu<OpcionesMenu> menuEstacio = new Menu<>("Menu " + "NO IMPLEMENTAT ---> estacio.getNomEstacio()", OpcionesMenu.values());
+        Menu<OpcionesMenu> menuEstacio = new Menu<>("Menu " + estacio.getNomEstacio(), OpcionesMenu.values());
         //Menu<OpcionesMenu> menuEstacio = new Menu<>("Menu " + estacio.getNomEstacio(), OpcionesMenu.values());
         
         // Assignar una descripción a cada una de las opciones
@@ -89,16 +93,16 @@ public class VistaEstacioEsqui {
             
             switch(opcionMenu) {
                 case M_Opcion_1_ListarPistas:
-                    // Put your code here
+                    System.out.println(estacio.getLlistaPistes());
                     break;
                 case M_Opcion_2_ListarPistasAbiertas:
-                    // Put your code here
+                    estacio.getLlistaPistes().llistarPistes("oberta");
                     break;
                 case M_Opcion_3_ListarPistasCerradas:
-                    // Put your code here
+                    estacio.getLlistaPistes().llistarPistes("tancada");
                     break;
                 case M_Opcion_4_ListarRemontadores:
-                    // Put your code here
+                    System.out.println(estacio.getLlistaRemuntadors());
                     break;
                 case M_Opcion_5_ListarRemontadoresEnServicio:
                     // Put your code here
@@ -116,7 +120,13 @@ public class VistaEstacioEsqui {
                     // Put your code here
                     break;
                case M_Opcion_10_Modificar_Visibilitat:
-                    // Put your code here
+                   
+                   if(estacio.getMeteo().getVisibilitat().equals("bona")){
+                       estacio.getMeteo().setVisibilitat("dolenta");
+                   }else{
+                       estacio.getMeteo().setVisibilitat("bona");
+                   }
+                   System.out.println("Visibilitat modificada correctament.");
                     break;
                 case M_Opcion_11_Report_Meteo:
                     // Put your code here

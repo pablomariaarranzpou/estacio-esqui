@@ -11,29 +11,36 @@ package prog2.model;
  */
 public class Meteo {
     
-    private boolean visibilitat;
+    private String visibilitat;
     private int vent;
 
-    public Meteo(boolean visibilitat, int vent) {
+    public Meteo(String visibilitat, int vent) {
         this.visibilitat = visibilitat;
         this.vent = vent;
     }
 
-    public boolean isVisibilitat() {
+    public String getVisibilitat() {
         return visibilitat;
     }
 
-    public void setVisibilitat(boolean visibilitat) {
+    public void setVisibilitat(String visibilitat) {
         this.visibilitat = visibilitat;
     }
 
     public int getVent() {
         return vent;
     }
-
+    
     public void setVent(int vent) {
         this.vent = vent;
     }
+
+    @Override
+    public String toString() {
+        return "Meteo = " + "visibilitat=" + visibilitat + ", vent=" + vent + '}';
+    }
+    
+    
     
     
     

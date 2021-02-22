@@ -26,6 +26,54 @@ public class EstacioEsqui {
         this.llistaRemuntadors = new LlistaRemuntadors();
         this.llistaPistes = new LlistaPistes();
     }
+
+    public String getNomEstacio() {
+        return nomEstacio;
+    }
+
+    public void setNomEstacio(String nomEstacio) {
+        this.nomEstacio = nomEstacio;
+    }
+
+    public String getVisibilitat() {
+        return visibilitat;
+    }
+
+    public void setVisibilitat(String visibilitat) {
+        this.visibilitat = visibilitat;
+    }
+
+    public int getVent() {
+        return vent;
+    }
+
+    public void setVent(int vent) {
+        this.vent = vent;
+    }
+
+    public Meteo getMeteo() {
+        return meteo;
+    }
+
+    public void setMeteo(Meteo meteo) {
+        this.meteo = meteo;
+    }
+
+    public LlistaRemuntadors getLlistaRemuntadors() {
+        return llistaRemuntadors;
+    }
+
+    public void setLlistaRemuntadors(LlistaRemuntadors llistaRemuntadors) {
+        this.llistaRemuntadors = llistaRemuntadors;
+    }
+
+    public LlistaPistes getLlistaPistes() {
+        return llistaPistes;
+    }
+
+    public void setLlistaPistes(LlistaPistes llistaPistes) {
+        this.llistaPistes = llistaPistes;
+    }
     
     
     
