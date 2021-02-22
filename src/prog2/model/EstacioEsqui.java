@@ -11,4 +11,22 @@ package prog2.model;
  */
 public class EstacioEsqui {
     
+    private String nomEstacio, visibilitat;
+    private int vent;
+    private Meteo meteo;
+    private LlistaRemuntadors llistaRemuntadors;
+    private LlistaPistes llistaPistes;
+
+    public EstacioEsqui(String nomEstacio, int velocitatVent, String visibilitat) {
+        
+        this.nomEstacio = nomEstacio;
+        this.vent = velocitatVent;
+        this.visibilitat = visibilitat;
+        this.meteo = new Meteo(visibilitat, vent);
+        this.llistaRemuntadors = new LlistaRemuntadors();
+        this.llistaPistes = new LlistaPistes();
+    }
+    
+    
+    
 }
