@@ -6,7 +6,6 @@
 package prog2.model;
 
 import java.util.ArrayList;
-import prog2.model.Pista;
 /**
  *
  * @author arran
@@ -67,6 +66,19 @@ public class LlistaPistes {
         return suma;
 
     }
+
+    @Override
+    public String toString() {
+
+        String llista = "";
+        for(int i = 0; i<llistaPistes.size(); i++){
+            llista+=  llistaPistes.get(i).toString();
+        }
+        return llista;
+    }  
+    
+    
+    
 
     
     
