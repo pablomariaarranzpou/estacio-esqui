@@ -48,7 +48,7 @@ public class LlistaPistes {
         ArrayList <Pista> llistarPistes = new ArrayList(numPistes);
         
         for (int i = 0; i < llistaPistes.size(); i++) {
-            if (llistaPistes.get(i).getEstat_neu().equals(estat) || llistaPistes.get(i).getEstat_pista().equals(estat) ) {
+            if (llistaPistes.get(i).getEstat_pista().equals(estat) ) {
                 llistarPistes.add(llistaPistes.get(i));
             }  
         }
@@ -62,12 +62,13 @@ public class LlistaPistes {
         float suma = 0;
         
         for (int i = 0; i < llistaPistes.size(); i++) {
-            if (llistaPistes.get(i).getEstat_neu().equals(estat) || llistaPistes.get(i).getEstat_pista().equals(estat) ) {
-                suma += llistarPistes.get(i).getLonguitud();
-            }  
+                suma += llistarPistes.get(i).getLonguitud(); 
         }
         return suma;
 
     }
+
+    
+    
 
 }
