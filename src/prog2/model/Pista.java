@@ -5,6 +5,8 @@
  */
 package prog2.model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author arran
@@ -13,12 +15,26 @@ public class Pista {
     
     private String nom, sector, color, estat_neu, estat_pista;
     private float longuitud;
+    private LlistaRemuntadors dependencies;
+    
+    public Pista(String nom, String sector, String color, String estat_neu, String estat_pista, float longuitud, LlistaRemuntadors dependencies) {
+        this.nom = nom;
+        this.sector = sector;
+        this.color = color;
+        this.estat_neu = estat_neu;
+        this.estat_pista = estat_pista;
+        this.longuitud = longuitud;
+        this.dependencies = new LlistaRemuntadors();
+    }
+
     public void actualitzaEstat(){
         
     }
-public void afegirDependencia(Remuntador rm){
     
-}
+    public void afegirDependencia(Remuntador rm){
+    
+    }
+
 
 
     public String getNom() {
@@ -68,6 +84,13 @@ public void afegirDependencia(Remuntador rm){
     public void setEstat_pista(String estat_pista) {
         this.estat_pista = estat_pista;
     }
+
+    @Override
+    public String toString() {
+        return "Pista:" + nom + ", sector=" + sector + ", color=" + color + ", estat_neu=" + estat_neu + ", estat_pista=" + estat_pista + ", longuitud=" + longuitud + '}';
+    }
+    
+    
 
 
 }
