@@ -111,10 +111,11 @@ public class VistaEstacioEsqui {
                     System.out.println(estacio.getLlistaRemuntadors().llistarRemuntadors("Fora de Servei"));
                     break;
                 case M_Opcion_7_ModificarEstadoNieve:
-                    // Put your code here
+                    /// REVISAR!!!!!!!!!!!!!!!
                     break;
                 case M_Opcion_8_CalcularTotalKms:
-                    // Put your code here
+                    System.out.println("Seleccioni l` estat:");
+                    System.out.println(estacio.getLlistaPistes().calculaKmsPistes(sc.next()));
                     break;
                 case M_Opcion_9_Modificar_Vent:
                     System.out.println("Seleccioni la velocitat del vent:");
@@ -123,15 +124,15 @@ public class VistaEstacioEsqui {
                     break;
                case M_Opcion_10_Modificar_Visibilitat:
                    
-                   if(estacio.getMeteo().getVisibilitat().equals("bona")){
-                       estacio.getMeteo().setVisibilitat("dolenta");
+                   if(estacio.getMeteo().getVisibilitat().equals("Bona")){
+                       estacio.getMeteo().setVisibilitat("Dolenta");
                    }else{
-                       estacio.getMeteo().setVisibilitat("bona");
+                       estacio.getMeteo().setVisibilitat("Bona");
                    }
                    System.out.println("Visibilitat modificada correctament.");
                     break;
                 case M_Opcion_11_Report_Meteo:
-                    // Put your code here
+                    System.out.println(estacio.getMeteo().toString());
                     break;
             }
             

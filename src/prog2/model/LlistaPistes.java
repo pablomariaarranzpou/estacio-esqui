@@ -23,6 +23,10 @@ public class LlistaPistes {
     public void actualitzaEstat() {
 
     }
+    
+    public int size(){
+        return this.llistaPistes.size();
+    }
 
     public void afegirPista(Pista p) {
         
