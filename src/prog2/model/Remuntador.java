@@ -68,7 +68,7 @@ public abstract class Remuntador {
 
     @Override
     public String toString() {
-        return "Remuntador: "+ nom + ", Tipus: " + this.tipus() + ", Sector: " + sector + ", Estat" + estat + "\n";
+        return "Remuntador: "+ nom + ", Tipus: " + this.tipus() + ", Sector: " + sector + ", Estat: " + estat + "\n";
     }
     
     
