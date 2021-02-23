@@ -17,8 +17,8 @@ public class Pista {
     private float longuitud;
     private LlistaRemuntadors dependencies;
     
-    public Pista(String nom, String sector, String color, String estat_neu,
-          String estat_pista, float longuitud, LlistaRemuntadors dependencies) {
+    public Pista(String nom, String sector, String color, float longuitud,String estat_neu,
+          String estat_pista) {
         this.nom = nom;
         this.sector = sector;
         this.color = color;
@@ -27,6 +27,7 @@ public class Pista {
         this.longuitud = longuitud;
         this.dependencies = new LlistaRemuntadors();
     }
+
 
     public void actualitzaEstat(){
         
@@ -89,6 +90,6 @@ public class Pista {
         return "Pista: " + nom + ", Sector: " + sector + ", Color: " + color + 
                 ", Estat Neu: " + estat_neu + ", Estat Pista: " + estat_pista +
                 ", Longuitud: " + longuitud + ", Dependencies: "+ 
-                dependencies.toString();
+                dependencies.getNoms()+ "\n";
     }
 }

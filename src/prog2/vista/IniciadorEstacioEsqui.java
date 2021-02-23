@@ -27,4 +27,6 @@ public class IniciadorEstacioEsqui {
         vistaEstacioVall2000.gestioEstacio();
     }
     
+    
+    
 }

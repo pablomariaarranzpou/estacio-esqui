@@ -23,6 +23,7 @@ public class VistaEstacioEsqui {
     public VistaEstacioEsqui(String nomEstacio, int velocitatVent, String visibilitat) {
         // Creem un nou objecte Estació Esqui
         this.estacio = new EstacioEsqui(nomEstacio, velocitatVent, visibilitat);
+        this.estacio.inicialitzaDadesVall2000();
     };
        
     /* Métodes */    
@@ -113,7 +114,7 @@ public class VistaEstacioEsqui {
                     System.out.println(llistar_Remuntadors("Tots"));
                     break;
                 case M_Opcion_5_ListarRemontadoresEnServicio:
-                    System.out.println(llistar_Remuntadors("En Servei”"));
+                    System.out.println(llistar_Remuntadors("En Servei"));
                     break;
                 case M_Opcion_6_ListarRemontadoresFueraServicio:
                     System.out.println(llistar_Remuntadors("Fora de Servei"));
@@ -157,6 +158,7 @@ public class VistaEstacioEsqui {
             
         } while(opcionMenu != OpcionesMenu.M_Opcion_12_Salir);
     }
+    
 
 }
 

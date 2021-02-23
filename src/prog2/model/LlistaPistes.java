@@ -31,7 +31,7 @@ public class LlistaPistes {
     public void afegirPista(Pista p) {
         
         if(llistaPistes.size() < numPistes){
-            llistaPistes.add(llistaPistes.size(), p);
+            llistaPistes.add(p);
         }
 
     }
@@ -48,14 +48,21 @@ public class LlistaPistes {
 
     public String llistarPistes(String estat) {
         
-        ArrayList <Pista> llistarPistes = new ArrayList(numPistes);
+        String string = "";
         
+        if ( estat.equals("Tots")){
+            for (int i = 0; i < llistaPistes.size(); i++) {
+                string += llistaPistes.get(i).toString();            
+        }
+            
+        }else{
         for (int i = 0; i < llistaPistes.size(); i++) {
             if (llistaPistes.get(i).getEstat_pista().equals(estat) ) {
-                llistarPistes.add(llistaPistes.get(i));
+                string += llistaPistes.get(i).toString();
             }  
         }
-        return llistarPistes.toString();
+        }
+        return string;
 
     }
 
@@ -79,6 +86,8 @@ public class LlistaPistes {
         }
         return llista;
     }  
+
+   
     
     
     

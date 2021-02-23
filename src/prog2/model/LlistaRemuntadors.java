@@ -38,11 +38,18 @@ public boolean totsForaDeServei(){
 public String llistarRemuntadors(String estat){
     
     String string = "";
-    for (int i = 0; i < llistaRemuntadors.size(); i++) {
-        if(llistaRemuntadors.get(i).getEstat().equals(estat))
-        string += llistaRemuntadors.get(i).toString();
+    if (estat.equals("Tots")) {
+        for (int i = 0; i < llistaRemuntadors.size(); i++) {
+            string += llistaRemuntadors.get(i).toString();
+        }
+    } else {
+        for (int i = 0; i < llistaRemuntadors.size(); i++) {
+            if (llistaRemuntadors.get(i).getEstat().equals(estat)) {
+                string += llistaRemuntadors.get(i).toString();
+            }
+        }
     }
-    
+
     return string;
     
 }
@@ -56,6 +63,8 @@ public String getNoms(){
     
     
 }
+
+
 
     
     
