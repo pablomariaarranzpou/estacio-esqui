@@ -56,7 +56,7 @@ public class EstacioEsqui {
 
     public void setVent(int vent) {
         if(vent < 0){
-            System.out.println("Dade no vàlides");
+            System.out.println("Dades no vàlides");
         }else{
         this.vent = vent;
         }
@@ -90,25 +90,25 @@ public class EstacioEsqui {
         
         /* Remuntadors */
         Remuntador RM1 = new Telecadira("RM1", "Nord", "En Servei", 35, false);
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM1);
-        Remuntador RM2 = new Teleesqui ("RM2", "Nord", "En Servei", 35, false);
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM2);
+        llistaRemuntadors.afegirRemuntador(RM1);
+        Remuntador RM2 = new Teleesqui("RM2", "Nord", "En Servei", 35, false);
+        llistaRemuntadors.afegirRemuntador(RM2);
         Remuntador RM3 = new Telecadira("RM3", "Nord", "En Servei", 35, false);
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM3);;
+        llistaRemuntadors.afegirRemuntador(RM3);
         Remuntador RM4 = new Teleesqui ("RM4", "Nord", "En Servei", 60, false); 
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM4);;
+        llistaRemuntadors.afegirRemuntador(RM4);
         Remuntador RM5 = new Telecabina("RM5", "Nord", "En Servei", 60, false); 
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM5);;
+        llistaRemuntadors.afegirRemuntador(RM5);
         Remuntador RM6 = new CintaTransportadora("RM6", "Nord", "En Servei", 60, false);
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM6);;
+        llistaRemuntadors.afegirRemuntador(RM6);
         Remuntador RM7 = new Teleesqui ("RM7", "Sud", "En Servei", 60, false); 
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM7);;
+        llistaRemuntadors.afegirRemuntador(RM7);
         Remuntador RM8 = new Telecadira("RM8", "Sud", "En Servei", 60, false);   
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM8);;
+        llistaRemuntadors.afegirRemuntador(RM8);
         Remuntador RM9 = new Telecabina("RM9", "Sud", "Fora de Servei", 60, true);
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM9);;
+        llistaRemuntadors.afegirRemuntador(RM9);
         Remuntador  RM10 = new Teleferic ("RM10", "Inter-Sector", "En Servei", 60, false);
-        llistaRemuntadors.afegirRemuntador((Remuntador) RM10);;
+        llistaRemuntadors.afegirRemuntador(RM10);
         
         /* Pistes */
         Pista P1  = new Pista("P1",  "Nord", "Negra",    0.8f, "Dura",      "Oberta"); llistaPistes.afegirPista(P1);

@@ -21,6 +21,17 @@ public class LlistaRemuntadors {
     
     public void actualitzaEstat(Meteo meteo){
         
+        for (int i = 0; i < llistaRemuntadors.size(); i++) {
+            
+            if(llistaRemuntadors.get(i).getLímitVent() < meteo.getVent() ||
+                    (llistaRemuntadors.get(i).isSusceptible() && meteo.getVisibilitat().equals("Dolenta"))){
+                llistaRemuntadors.get(i).setEstat("Fora de Servei");
+            }else{
+                llistaRemuntadors.get(i).setEstat("En servei");
+            }
+   
+        }
+        
     }
 public void afegirRemuntador (Remuntador rm){
     llistaRemuntadors.add(rm);
@@ -60,8 +71,7 @@ public String getNoms(){
     }
     
     return string;
-    
-    
+       
 }
 
 

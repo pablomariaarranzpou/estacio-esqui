@@ -33,6 +33,11 @@ public class VistaEstacioEsqui {
         return estacio.getLlistaPistes().llistarPistes(estat);
     }
     
+    public void actualitzaMeteo(){
+        estacio.getLlistaRemuntadors().actualitzaEstat(estacio.getMeteo());
+        
+    }
+    
     public String llistar_Remuntadors(String estat){
         return estacio.getLlistaRemuntadors().llistarRemuntadors(estat);
     }
@@ -140,6 +145,7 @@ public class VistaEstacioEsqui {
                 case M_Opcion_9_Modificar_Vent:
                     System.out.println("Seleccioni la velocitat del vent:");
                     estacio.getMeteo().setVent(sc.nextInt());
+                    actualitzaMeteo();
                     System.out.println("Vent modificat correctament.");
                     break;
                case M_Opcion_10_Modificar_Visibilitat:
@@ -149,6 +155,7 @@ public class VistaEstacioEsqui {
                    }else{
                        estacio.getMeteo().setVisibilitat("Bona");
                    }
+                   actualitzaMeteo();
                    System.out.println("Visibilitat modificada correctament.");
                     break;
                 case M_Opcion_11_Report_Meteo:
