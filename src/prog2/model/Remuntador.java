@@ -10,7 +10,7 @@ package prog2.model;
  * @author arran
  */
 public abstract class Remuntador {
-    
+
     private String nom, sector, estat;
     private int límitVent;
     private boolean susceptible;
@@ -22,9 +22,11 @@ public abstract class Remuntador {
         this.límitVent = límitVent;
         this.susceptible = susceptible;
     }
-    
+
     public abstract String tipus();
-    public void actualitzaEstat(Meteo meteo){ }
+
+    public void actualitzaEstat(Meteo meteo) {
+    }
 
     public String getNom() {
         return nom;
@@ -68,9 +70,7 @@ public abstract class Remuntador {
 
     @Override
     public String toString() {
-        return "Remuntador: "+ nom + ", Tipus: " + this.tipus() + ", Sector: " + sector + ", Estat: " + estat + "\n";
+        return "Remuntador: " + nom + ", Tipus: " + this.tipus() + ", Sector: " + sector + ", Estat: " + estat + "\n";
     }
-    
-    
 
 }

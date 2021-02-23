@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class LlistaPistes {
     
-    ArrayList <Pista> llistaPistes;
+    private ArrayList <Pista> llistaPistes;
     int numPistes = 12;
     
 
@@ -21,6 +21,13 @@ public class LlistaPistes {
     }
     
     public void actualitzaEstat() {
+        
+        for (int i = 0; i < llistaPistes.size(); i++) {
+            if(llistaPistes.get(i).getDependencies().totsForaDeServei()){
+                llistaPistes.get(i).setEstat_pista("Tancada");
+            }
+        }
+        
 
     }
     
@@ -71,7 +78,10 @@ public class LlistaPistes {
         float suma = 0;
         
         for (int i = 0; i < llistaPistes.size(); i++) {
+            if(llistaPistes.get(i).getEstat_pista().equals(estat)){      
+            
                 suma += llistaPistes.get(i).getLonguitud(); 
+            }
         }
         return suma;
 

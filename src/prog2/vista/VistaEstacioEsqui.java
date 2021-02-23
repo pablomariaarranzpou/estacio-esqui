@@ -36,6 +36,7 @@ public class VistaEstacioEsqui {
 
     public void actualitzaMeteo() {
         estacio.getLlistaRemuntadors().actualitzaEstat(estacio.getMeteo());
+        estacio.getLlistaPistes().actualitzaEstat();
 
     }
 
@@ -128,7 +129,7 @@ public class VistaEstacioEsqui {
                 case M_Opcion_7_ModificarEstadoNieve:
                     System.out.println("Que pista desitja modificar?");
                     String nom = sc.next();
-                    System.out.println("Estat de la pista?");
+                    System.out.println("Estat de la pista actual?");
                     String estatPista = sc.next();
                     System.out.println("A quin estat vol actualitzar?");
                     String actualitzar = sc.next();
@@ -144,7 +145,14 @@ public class VistaEstacioEsqui {
                     break;
                 case M_Opcion_8_CalcularTotalKms:
                     System.out.println("Seleccioni l` estat:");
-                    System.out.println("Distància total: " + estacio.getLlistaPistes().calculaKmsPistes(sc.next()) + " kms");
+                    String estat;
+                    estat = sc.next();
+                    if (estat.equals("Oberta") || estat.equals("Tancada") || estat.equals("Tots")) {
+                        System.out.println("Distància total: " + estacio.getLlistaPistes().calculaKmsPistes(estat) + " kms");
+                    } else {
+                        System.out.println("Estat invàlid");
+                    }
+
                     break;
                 case M_Opcion_9_Modificar_Vent:
                     System.out.println("Seleccioni la velocitat del vent:");

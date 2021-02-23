@@ -89,6 +89,10 @@ public class Pista {
         this.estat_pista = estat_pista;
     }
 
+    public LlistaRemuntadors getDependencies() {
+        return dependencies;
+    }
+
     @Override
     public String toString() {
         return "Pista: " + nom + ", Sector: " + sector + ", Color: " + color

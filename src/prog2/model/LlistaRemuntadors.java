@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class LlistaRemuntadors {
     
-    ArrayList <Remuntador> llistaRemuntadors;
+    private ArrayList <Remuntador> llistaRemuntadors;
 
     public LlistaRemuntadors() {
         this.llistaRemuntadors = new ArrayList();
@@ -39,7 +39,7 @@ public void afegirRemuntador (Remuntador rm){
 public boolean totsForaDeServei(){
     
     for (int i = 0; i < llistaRemuntadors.size(); i++) {
-        if(llistaRemuntadors.get(i).getEstat().equals("obert"))
+        if(llistaRemuntadors.get(i).getEstat().equals("En Servei"))
         return false;
     }
     
@@ -73,9 +73,5 @@ public String getNoms(){
     return string;
        
 }
-
-
-
-    
-    
+ 
 }
