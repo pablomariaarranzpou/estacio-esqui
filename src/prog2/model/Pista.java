@@ -5,19 +5,19 @@
  */
 package prog2.model;
 
-
 /**
  *
  * @author arran
  */
 public class Pista {
-    
+
     private String nom, sector, color, estat_neu, estat_pista;
     private float longuitud;
     private LlistaRemuntadors dependencies;
-    
-    public Pista(String nom, String sector, String color, float longuitud,String estat_neu,
-          String estat_pista) {
+
+    public Pista(String nom, String sector, String color, float longuitud, String estat_neu,
+            String estat_pista) {
+
         this.nom = nom;
         this.sector = sector;
         this.color = color;
@@ -27,12 +27,11 @@ public class Pista {
         this.dependencies = new LlistaRemuntadors();
     }
 
+    public void actualitzaEstat() {
 
-    public void actualitzaEstat(){
-        
     }
-    
-    public void afegirDependencia(Remuntador rm){
+
+    public void afegirDependencia(Remuntador rm) {
         this.dependencies.afegirRemuntador(rm);
     }
 
@@ -73,7 +72,13 @@ public class Pista {
     }
 
     public void setEstat_neu(String estat_neu) {
-        this.estat_neu = estat_neu;
+        if (estat_neu.equals("Dura") || estat_neu.equals("Primavera")
+                || estat_neu.equals("Pols")) {
+            this.estat_neu = estat_neu;
+        } else {
+            System.out.println("Nou estat no vàlid");
+        }
+
     }
 
     public String getEstat_pista() {
@@ -86,9 +91,9 @@ public class Pista {
 
     @Override
     public String toString() {
-        return "Pista: " + nom + ", Sector: " + sector + ", Color: " + color + 
-                ", Estat Neu: " + estat_neu + ", Estat Pista: " + estat_pista +
-                ", Longuitud: " + longuitud + ", Dependencies: "+ 
-                dependencies.getNoms()+ "\n";
+        return "Pista: " + nom + ", Sector: " + sector + ", Color: " + color
+                + ", Estat Neu: " + estat_neu + ", Estat Pista: " + estat_pista
+                + ", Longuitud: " + longuitud + " Km , Dependencies: "
+                + dependencies.getNoms() + "\n";
     }
 }

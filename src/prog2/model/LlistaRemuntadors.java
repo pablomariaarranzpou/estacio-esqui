@@ -67,7 +67,7 @@ public String llistarRemuntadors(String estat){
 public String getNoms(){
     String string = "";
     for (int i = 0; i < llistaRemuntadors.size(); i++) {
-        string += llistaRemuntadors.get(i).getNom();
+        string += llistaRemuntadors.get(i).getNom() + " ";
     }
     
     return string;

@@ -128,10 +128,13 @@ public class VistaEstacioEsqui {
                 case M_Opcion_7_ModificarEstadoNieve:
                     System.out.println("Que pista desitja modificar?");
                     String nom = sc.next();
+                    System.out.println("Estat de la pista?");
+                    String estatPista = sc.next();
                     System.out.println("A quin estat vol actualitzar?");
                     String actualitzar = sc.next();
 
-                    if (estacio.getLlistaPistes().getPista(nom) != null) {
+                    if (estacio.getLlistaPistes().getPista(nom) != null
+                            && estacio.getLlistaPistes().getPista(nom).getEstat_pista().equals(estatPista)) {
                         estacio.getLlistaPistes().getPista(nom).setEstat_neu(actualitzar);
                         System.out.println("Estat de la neu actualitzat.");
                     } else {
