@@ -164,8 +164,10 @@ public class VistaEstacioEsqui {
 
                     if (estacio.getMeteo().getVisibilitat().equals("Bona")) {
                         estacio.getMeteo().setVisibilitat("Dolenta");
+                        System.out.println("Visibilitat modificada correctament a Dolenta");
                     } else {
                         estacio.getMeteo().setVisibilitat("Bona");
+                        System.out.println("Visibilitat modificada correctament a Bona");
                     }
                     actualitzaMeteo();
                     System.out.println("Visibilitat modificada correctament.");
