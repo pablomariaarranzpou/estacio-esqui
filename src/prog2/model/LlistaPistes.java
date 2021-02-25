@@ -9,16 +9,24 @@ import java.util.ArrayList;
 /**
  *
  * @author arran
+ * 
+ * Clase que guarda totes les Pistes a una ArrayList.
  */
 public class LlistaPistes {
     
     private ArrayList <Pista> llistaPistes;
-    int numPistes = 12;
     
-
+    /**
+     * Constructor per defecte de la clase LlistaPistes.
+     */
     public LlistaPistes() {
-        llistaPistes = new ArrayList(numPistes);
+        llistaPistes = new ArrayList();
     }
+    
+    /**
+     * Métode amb el cual apliquem les consequencies d´un canvi meteorologic a
+     * totes les piestes de LlistaPistes.
+     */ 
     
     public void actualitzaEstat() {
         
@@ -31,18 +39,29 @@ public class LlistaPistes {
 
     }
     
+    /**
+     * Métode que retorna la mida de la llista.
+     * @return int
+     */
     public int size(){
         return this.llistaPistes.size();
     }
 
+    /**
+     * Métode per afegir una pista a la llista de pistas.
+     * @param p 
+     */
     public void afegirPista(Pista p) {
         
-        if(llistaPistes.size() < numPistes){
-            llistaPistes.add(p);
-        }
+        llistaPistes.add(p);
 
     }
-
+    /**
+     * Métode de cerca en la llista d´una pissta amb el mateix nom donat
+     * per paràmetre.
+     * @param nom
+     * @return Pista
+     */
     public Pista getPista(String nom) {
         
         for (int i = 0; i < llistaPistes.size(); i++) {
@@ -52,7 +71,13 @@ public class LlistaPistes {
         }
         return null;
     }
-
+    
+      /**
+     * Métode que ens llista totes les pistes amb un eststat especific
+     * de LlistaPistes.
+     * @param estat
+     * @return String
+     */
     public String llistarPistes(String estat) {
         
         String string = "";
@@ -72,7 +97,13 @@ public class LlistaPistes {
         return string;
 
     }
-
+    /**
+     * Métode que ens calcula la suma de la longuitud de totes les pistes amb
+     * un eststat especific
+     * de LlistaPistes.
+     * @param estat
+     * @return float
+     */
     public float calculaKmsPistes(String estat) {
 
         float suma = 0;
@@ -86,7 +117,10 @@ public class LlistaPistes {
         return suma;
 
     }
-
+    /**
+     * Métode que  que imprimeix tots els objectes de tipus Pista de LlistaPistes
+     * @return String
+     */
     @Override
     public String toString() {
 

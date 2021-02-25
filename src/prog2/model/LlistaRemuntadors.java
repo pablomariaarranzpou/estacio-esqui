@@ -10,68 +10,100 @@ import java.util.ArrayList;
 /**
  *
  * @author arran
+ * Classe que guarda els Remuntadors en una ArrayList.
  */
 public class LlistaRemuntadors {
-    
-    private ArrayList <Remuntador> llistaRemuntadors;
 
+    private ArrayList<Remuntador> llistaRemuntadors;
+
+    /**
+     * Constructor per defecte de la Clase LListaRemuntadors.
+     */
     public LlistaRemuntadors() {
         this.llistaRemuntadors = new ArrayList();
     }
-    
-    public void actualitzaEstat(Meteo meteo){
-        
+
+    /**
+     * Métode amb el cual apliquem les consequencies d´un canvi meteorologic a
+     * tots els remuntadors.
+     *
+     * @param meteo
+     */
+    public void actualitzaEstat(Meteo meteo) {
+
         for (int i = 0; i < llistaRemuntadors.size(); i++) {
-            
-            if(llistaRemuntadors.get(i).getLímitVent() < meteo.getVent() ||
-                    (llistaRemuntadors.get(i).isSusceptible() && meteo.getVisibilitat().equals("Dolenta"))){
+
+            if (llistaRemuntadors.get(i).getLímitVent() < meteo.getVent()
+                    || (llistaRemuntadors.get(i).isSusceptible() && meteo.getVisibilitat().equals("Dolenta"))) {
                 llistaRemuntadors.get(i).setEstat("Fora de Servei");
-            }else{
+            } else {
                 llistaRemuntadors.get(i).setEstat("En servei");
             }
-   
+
         }
-        
+
     }
-public void afegirRemuntador (Remuntador rm){
-    llistaRemuntadors.add(rm);
-}
-public boolean totsForaDeServei(){
-    
-    for (int i = 0; i < llistaRemuntadors.size(); i++) {
-        if(llistaRemuntadors.get(i).getEstat().equals("En Servei"))
-        return false;
+    /**
+     * Métode per afegir un remuntador a LlistaRemuntadors.
+     * @param rm 
+     */
+    public void afegirRemuntador(Remuntador rm) {
+        llistaRemuntadors.add(rm);
     }
-    
-    return true;
-    
-}
-public String llistarRemuntadors(String estat){
-    
-    String string = "";
-    if (estat.equals("Tots")) {
+    /**
+     * Mètode que ens indica si tots els 
+     * remuntadors de la llista estan Fora de Servei o no.
+     * @return boolean
+     */
+    public boolean totsForaDeServei() {
+
         for (int i = 0; i < llistaRemuntadors.size(); i++) {
-            string += llistaRemuntadors.get(i).toString();
-        }
-    } else {
-        for (int i = 0; i < llistaRemuntadors.size(); i++) {
-            if (llistaRemuntadors.get(i).getEstat().equals(estat)) {
-                string += llistaRemuntadors.get(i).toString();
+            if (llistaRemuntadors.get(i).getEstat().equals("En Servei")) {
+                return false;
             }
         }
+
+        return true;
+
+    }
+    
+    /**
+     * Métode que ens llista tots els remuntadors amb un eststat especific
+     * de LlistaRemuntadors.
+     * @param estat
+     * @return String
+     */
+
+    public String llistarRemuntadors(String estat) {
+
+        String string = "";
+        if (estat.equals("Tots")) {
+            for (int i = 0; i < llistaRemuntadors.size(); i++) {
+                string += llistaRemuntadors.get(i).toString();
+            }
+        } else {
+            for (int i = 0; i < llistaRemuntadors.size(); i++) {
+                if (llistaRemuntadors.get(i).getEstat().equals(estat)) {
+                    string += llistaRemuntadors.get(i).toString();
+                }
+            }
+        }
+
+        return string;
+
+    }
+    /**
+     * Métode que retorna tots els noms dels remuntadors de LlistaRemuntadors.
+     * @return String
+     */
+    public String getNoms() {
+        String string = "";
+        for (int i = 0; i < llistaRemuntadors.size(); i++) {
+            string += llistaRemuntadors.get(i).getNom() + " ";
+        }
+
+        return string;
+
     }
 
-    return string;
-    
-}
-public String getNoms(){
-    String string = "";
-    for (int i = 0; i < llistaRemuntadors.size(); i++) {
-        string += llistaRemuntadors.get(i).getNom() + " ";
-    }
-    
-    return string;
-       
-}
- 
 }
