@@ -17,65 +17,58 @@ public class LlistaRemuntadors {
     private ArrayList<Remuntador> llistaRemuntadors;
 
     /**
-     * Constructor per defecte de la Clase LListaRemuntadors.
+     * Constructor per defecte de la Classe LListaRemuntadors.
      */
     public LlistaRemuntadors() {
         this.llistaRemuntadors = new ArrayList();
     }
 
     /**
-     * Métode amb el cual apliquem les consequencies d´un canvi meteorologic a
+     * Mètode amb el qual apliquem les conseqüències d´un canvi meteorològic a
      * tots els remuntadors.
      *
      * @param meteo
      */
     public void actualitzaEstat(Meteo meteo) {
-
         for (int i = 0; i < llistaRemuntadors.size(); i++) {
-
             if (llistaRemuntadors.get(i).getLímitVent() < meteo.getVent()
                     || (llistaRemuntadors.get(i).isSusceptible() && meteo.getVisibilitat().equals("Dolenta"))) {
                 llistaRemuntadors.get(i).setEstat("Fora de Servei");
             } else {
                 llistaRemuntadors.get(i).setEstat("En servei");
             }
-
         }
-
     }
+    
     /**
-     * Métode per afegir un remuntador a LlistaRemuntadors.
+     * Mètode per afegir un remuntador a LlistaRemuntadors.
      * @param rm 
      */
     public void afegirRemuntador(Remuntador rm) {
         llistaRemuntadors.add(rm);
     }
+    
     /**
      * Mètode que ens indica si tots els 
      * remuntadors de la llista estan Fora de Servei o no.
      * @return boolean
      */
     public boolean totsForaDeServei() {
-
         for (int i = 0; i < llistaRemuntadors.size(); i++) {
             if (llistaRemuntadors.get(i).getEstat().equals("En Servei")) {
                 return false;
             }
         }
-
         return true;
-
     }
     
     /**
-     * Métode que ens llista tots els remuntadors amb un eststat especific
+     * Mètode que ens llista tots els remuntadors amb un estat específic
      * de LlistaRemuntadors.
      * @param estat
      * @return String
      */
-
     public String llistarRemuntadors(String estat) {
-
         String string = "";
         if (estat.equals("Tots")) {
             for (int i = 0; i < llistaRemuntadors.size(); i++) {
@@ -88,12 +81,11 @@ public class LlistaRemuntadors {
                 }
             }
         }
-
         return string;
-
     }
+    
     /**
-     * Métode que retorna tots els noms dels remuntadors de LlistaRemuntadors.
+     * Mètode que retorna tots els noms dels remuntadors de LlistaRemuntadors.
      * @return String
      */
     public String getNoms() {
@@ -103,7 +95,6 @@ public class LlistaRemuntadors {
         }
 
         return string;
-
     }
-
+    
 }

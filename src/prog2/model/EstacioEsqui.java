@@ -19,7 +19,7 @@ public class EstacioEsqui {
 
     public EstacioEsqui(String nomEstacio, int velocitatVent, String visibilitat) {
         if (velocitatVent < 0 || !(visibilitat.equals("Bona") && !(visibilitat.equals("Dolenta")))) {
-            System.out.println("Dade no vàlides, bo s´ha pgout inicilitzar l´estació.");
+            System.out.println("Dade no vàlides, no s´ha pgout inicilitzar l´estació.");
         } else {
             this.nomEstacio = nomEstacio;
             this.vent = velocitatVent;

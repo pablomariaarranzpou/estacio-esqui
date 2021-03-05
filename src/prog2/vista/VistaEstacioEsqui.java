@@ -18,14 +18,12 @@ public class VistaEstacioEsqui {
     /* Atributs */
     private EstacioEsqui estacio;
 
-    /* Constructor de la Vista*/
+    /* Constructor de la Vista */
     public VistaEstacioEsqui(String nomEstacio, int velocitatVent, String visibilitat) {
         // Creem un nou objecte Estació Esqui
         this.estacio = new EstacioEsqui(nomEstacio, velocitatVent, visibilitat);
         this.estacio.inicialitzaDadesVall2000();
     }
-
-    ;
        
     /* Métodes */    
     //WRITE YOUR CODE HERE
@@ -37,7 +35,6 @@ public class VistaEstacioEsqui {
     public void actualitzaMeteo() {
         estacio.getLlistaRemuntadors().actualitzaEstat(estacio.getMeteo());
         estacio.getLlistaPistes().actualitzaEstat();
-
     }
 
     public String llistar_Remuntadors(String estat) {
@@ -102,7 +99,7 @@ public class VistaEstacioEsqui {
         // Variable (de tipo enumerado igual a las opciones del menu) que contiene la opcion escogida
         OpcionesMenu opcionMenu;
 
-        // Lançar el bucle principal de la aplicación
+        // Lanzar el bucle principal de la aplicación
         do {
             menuEstacio.mostrarMenu();
             opcionMenu = menuEstacio.getOpcio(sc);
@@ -127,7 +124,7 @@ public class VistaEstacioEsqui {
                     System.out.println(llistar_Remuntadors("Fora de Servei"));
                     break;
                 case M_Opcion_7_ModificarEstadoNieve:
-                    System.out.println("Que pista desitja modificar?");
+                    System.out.println("Quina pista desitja modificar?");
                     String nom = sc.next();
                     System.out.println("Estat de la pista actual?");
                     String estatPista = sc.next();
@@ -141,10 +138,9 @@ public class VistaEstacioEsqui {
                     } else {
                         System.out.println("Pista no trobada en aquesta estació");
                     }
-
                     break;
                 case M_Opcion_8_CalcularTotalKms:
-                    System.out.println("Seleccioni l` estat:");
+                    System.out.println("Seleccioni l`estat:");
                     String estat;
                     estat = sc.next();
                     if (estat.equals("Oberta") || estat.equals("Tancada") || estat.equals("Tots")) {
@@ -152,7 +148,6 @@ public class VistaEstacioEsqui {
                     } else {
                         System.out.println("Estat invàlid");
                     }
-
                     break;
                 case M_Opcion_9_Modificar_Vent:
                     System.out.println("Seleccioni la velocitat del vent:");
@@ -161,7 +156,6 @@ public class VistaEstacioEsqui {
                     System.out.println("Vent modificat correctament.");
                     break;
                 case M_Opcion_10_Modificar_Visibilitat:
-
                     if (estacio.getMeteo().getVisibilitat().equals("Bona")) {
                         estacio.getMeteo().setVisibilitat("Dolenta");
                         System.out.println("Visibilitat modificada correctament a Dolenta");

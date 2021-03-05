@@ -40,8 +40,4 @@ public class Meteo {
         return "Meteo: " + "Visibilitat: " + visibilitat + " Velocitat del vent: " + vent + " km/h";
     }
     
-    
-    
-    
-    
 }

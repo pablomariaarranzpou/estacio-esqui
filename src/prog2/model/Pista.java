@@ -12,26 +12,26 @@ package prog2.model;
 public class Pista {
 
     private String nom, sector, color, estat_neu, estat_pista;
-    private float longuitud;
+    private float longitud;
     private LlistaRemuntadors dependencies;
     
     /**
-     * Constructor de la clase Pista
+     * Constructor de la classe Pista
      * @param nom
      * @param sector
      * @param color
-     * @param longuitud
+     * @param longitud
      * @param estat_neu
      * @param estat_pista 
      */
-    public Pista(String nom, String sector, String color, float longuitud, String estat_neu,
+    public Pista(String nom, String sector, String color, float longitud, String estat_neu,
             String estat_pista) {
         this.nom = nom;
         this.sector = sector;
         this.color = color;
         this.estat_neu = estat_neu;
         this.estat_pista = estat_pista;
-        this.longuitud = longuitud;
+        this.longitud = longitud;
         this.dependencies = new LlistaRemuntadors();
     }
 
@@ -40,7 +40,7 @@ public class Pista {
     }
     
     /**
-     * Métode que afegeix Remuntadors (dependéncies) a una pista.
+     * Mètode que afegeix Remuntadors (dependéncies) a una pista.
      * @param rm 
      */
     public void afegirDependencia(Remuntador rm) {
@@ -48,7 +48,7 @@ public class Pista {
     }
     
     /**
-     * Getter del atribut nom.
+     * Getter de l'atribut nom.
      * @return 
      */
     public String getNom() {
@@ -60,7 +60,7 @@ public class Pista {
     }
     
     /**
-     * Getter del atribut sector.
+     * Getter de l'atribut sector.
      * @return 
      */
     public String getSector() {
@@ -72,7 +72,7 @@ public class Pista {
     }
     
     /**
-     * Getter del atribut Color.
+     * Getter de l'atribut Color.
      * @return 
      */
     public String getColor() {
@@ -84,19 +84,19 @@ public class Pista {
     }
     
     /**
-     * Getter del atribut longuitud.
+     * Getter de l'atribut longitud.
      * @return 
      */
-    public float getLonguitud() {
-        return longuitud;
+    public float getLongitud() {
+        return longitud;
     }
 
-    public void setLonguitud(float longuitud) {
-        this.longuitud = longuitud;
+    public void setLongitud(float longitud) {
+        this.longitud = longitud;
     }
     
     /**
-     * Getter del atribut estat_neu.
+     * Getter de l'atribut estat_neu.
      * @return 
      */
     public String getEstat_neu() {
@@ -110,11 +110,10 @@ public class Pista {
         } else {
             System.out.println("Nou estat no vàlid");
         }
-
     }
     
     /**
-     * Getter del atribut estat pista.
+     * Getter de l'atribut estat pista.
      * @return 
      */
     public String getEstat_pista() {
@@ -126,7 +125,7 @@ public class Pista {
     }
     
     /**
-     * Getter del atribut dependencies.
+     * Getter de l'atribut dependencies.
      * @return 
      */
     public LlistaRemuntadors getDependencies() {
@@ -142,7 +141,8 @@ public class Pista {
     public String toString() {
         return "Pista: " + nom + ", Sector: " + sector + ", Color: " + color
                 + ", Estat Neu: " + estat_neu + ", Estat Pista: " + estat_pista
-                + ", Longuitud: " + longuitud + " Km , Dependencies: "
+                + ", Longitud: " + longitud + " Km , Dependencies: "
                 + dependencies.getNoms() + "\n";
     }
+    
 }
