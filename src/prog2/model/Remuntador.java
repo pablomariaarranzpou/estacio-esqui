@@ -11,67 +11,72 @@ package prog2.model;
  */
 public abstract class Remuntador {
 
-    private String nom, sector, estat;
-    private int límitVent;
-    private boolean susceptible;
+    private String _nom, _sector, _estat;
+    private int _limitVent;
+    private boolean _susceptible;
 
     public Remuntador(String nom, String sector, String estat, int límitVent, boolean susceptible) {
-        this.nom = nom;
-        this.sector = sector;
-        this.estat = estat;
-        this.límitVent = límitVent;
-        this.susceptible = susceptible;
+        _nom = nom;
+        _sector = sector;
+        _estat = estat;
+        _limitVent = límitVent;
+        _susceptible = susceptible;
     }
 
     public abstract String tipus();
 
     public void actualitzaEstat(Meteo meteo) {
-        
+        if (getLímitVent() < meteo.getVent()
+                || (isSusceptible() && meteo.getVisibilitat().equals("Dolenta"))) {
+            setEstat("Fora de Servei");
+        } else {
+            setEstat("En servei");
+        }
     }
 
     public String getNom() {
-        return nom;
+        return _nom;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        _nom = nom;
     }
 
     public String getSector() {
-        return sector;
+        return _sector;
     }
 
     public void setSector(String sector) {
-        this.sector = sector;
+        _sector = sector;
     }
 
     public String getEstat() {
-        return estat;
+        return _estat;
     }
 
     public void setEstat(String estat) {
-        this.estat = estat;
+        _estat = estat;
     }
 
     public int getLímitVent() {
-        return límitVent;
+        return _limitVent;
     }
 
     public void setLímitVent(int límitVent) {
-        this.límitVent = límitVent;
+        _limitVent = límitVent;
     }
 
     public boolean isSusceptible() {
-        return susceptible;
+        return _susceptible;
     }
 
     public void setSusceptible(boolean susceptible) {
-        this.susceptible = susceptible;
+        _susceptible = susceptible;
     }
 
     @Override
     public String toString() {
-        return "Remuntador: " + nom + ", Tipus: " + this.tipus() + ", Sector: " + sector + ", Estat: " + estat + "\n";
+        return "Remuntador: " + _nom + ", Tipus: " + this.tipus() + ", Sector: " + _sector + ", Estat: " + _estat + "\n";
     }
 
 }

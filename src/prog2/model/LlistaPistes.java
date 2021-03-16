@@ -15,13 +15,13 @@ import java.util.ArrayList;
  */
 public class LlistaPistes {
 
-    private ArrayList<Pista> llistaPistes;
+    private ArrayList<Pista> _llistaPistes;
 
     /**
      * Constructor per defecte de la clase LlistaPistes.
      */
     public LlistaPistes() {
-        llistaPistes = new ArrayList();
+        _llistaPistes = new ArrayList();
     }
 
     /**
@@ -29,10 +29,8 @@ public class LlistaPistes {
      * totes les pistes de LlistaPistes.
      */
     public void actualitzaEstat() {
-        for (int i = 0; i < llistaPistes.size(); i++) {
-            if (llistaPistes.get(i).getDependencies().totsForaDeServei()) {
-                llistaPistes.get(i).setEstat_pista("Tancada");
-            }
+        for (int i = 0; i < _llistaPistes.size(); i++) {
+            _llistaPistes.get(i).actualitzaEstat();
         }
     }
 
@@ -42,7 +40,7 @@ public class LlistaPistes {
      * @return int
      */
     public int size() {
-        return this.llistaPistes.size();
+        return _llistaPistes.size();
     }
 
     /**
@@ -51,7 +49,7 @@ public class LlistaPistes {
      * @param p
      */
     public void afegirPista(Pista p) {
-        llistaPistes.add(p);
+        _llistaPistes.add(p);
     }
 
     /**
@@ -62,9 +60,9 @@ public class LlistaPistes {
      * @return Pista
      */
     public Pista getPista(String nom) {
-        for (int i = 0; i < llistaPistes.size(); i++) {
-            if (llistaPistes.get(i).getNom().equals(nom)) {
-                return llistaPistes.get(i);
+        for (int i = 0; i < _llistaPistes.size(); i++) {
+            if (_llistaPistes.get(i).getNom().equals(nom)) {
+                return _llistaPistes.get(i);
             }
         }
         return null;
@@ -80,13 +78,13 @@ public class LlistaPistes {
     public String llistarPistes(String estat) {
         String string = "";
         if (estat.equals("Tots")) {
-            for (int i = 0; i < llistaPistes.size(); i++) {
-                string += llistaPistes.get(i).toString();
+            for (int i = 0; i < _llistaPistes.size(); i++) {
+                string += _llistaPistes.get(i).toString();
             }
         } else {
-            for (int i = 0; i < llistaPistes.size(); i++) {
-                if (llistaPistes.get(i).getEstat_pista().equals(estat)) {
-                    string += llistaPistes.get(i).toString();
+            for (int i = 0; i < _llistaPistes.size(); i++) {
+                if (_llistaPistes.get(i).getEstatPista().equals(estat)) {
+                    string += _llistaPistes.get(i).toString();
                 }
             }
         }
@@ -103,9 +101,9 @@ public class LlistaPistes {
     public float calculaKmsPistes(String estat) {
         float suma = 0;
         
-        for (int i = 0; i < llistaPistes.size(); i++) {
-            if (llistaPistes.get(i).getEstat_pista().equals(estat)) {
-                suma += llistaPistes.get(i).getLongitud();
+        for (int i = 0; i < _llistaPistes.size(); i++) {
+            if (_llistaPistes.get(i).getEstatPista().equals(estat)) {
+                suma += _llistaPistes.get(i).getLongitud();
             }
         }
         
@@ -120,8 +118,8 @@ public class LlistaPistes {
     @Override
     public String toString() {
         String llista = "";
-        for (int i = 0; i < llistaPistes.size(); i++) {
-            llista += llistaPistes.get(i).toString();
+        for (int i = 0; i < _llistaPistes.size(); i++) {
+            llista += _llistaPistes.get(i).toString();
         }
         return llista;
     }

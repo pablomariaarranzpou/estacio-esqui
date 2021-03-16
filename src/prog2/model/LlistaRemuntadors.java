@@ -14,13 +14,13 @@ import java.util.ArrayList;
  */
 public class LlistaRemuntadors {
 
-    private ArrayList<Remuntador> llistaRemuntadors;
+    private ArrayList<Remuntador> _llistaRemuntadors;
 
     /**
      * Constructor per defecte de la Classe LListaRemuntadors.
      */
     public LlistaRemuntadors() {
-        this.llistaRemuntadors = new ArrayList();
+        this._llistaRemuntadors = new ArrayList();
     }
 
     /**
@@ -30,13 +30,8 @@ public class LlistaRemuntadors {
      * @param meteo
      */
     public void actualitzaEstat(Meteo meteo) {
-        for (int i = 0; i < llistaRemuntadors.size(); i++) {
-            if (llistaRemuntadors.get(i).getLímitVent() < meteo.getVent()
-                    || (llistaRemuntadors.get(i).isSusceptible() && meteo.getVisibilitat().equals("Dolenta"))) {
-                llistaRemuntadors.get(i).setEstat("Fora de Servei");
-            } else {
-                llistaRemuntadors.get(i).setEstat("En servei");
-            }
+        for (int i = 0; i < _llistaRemuntadors.size(); i++) {
+            _llistaRemuntadors.get(i).actualitzaEstat(meteo);
         }
     }
     
@@ -45,7 +40,7 @@ public class LlistaRemuntadors {
      * @param rm 
      */
     public void afegirRemuntador(Remuntador rm) {
-        llistaRemuntadors.add(rm);
+        _llistaRemuntadors.add(rm);
     }
     
     /**
@@ -54,8 +49,8 @@ public class LlistaRemuntadors {
      * @return boolean
      */
     public boolean totsForaDeServei() {
-        for (int i = 0; i < llistaRemuntadors.size(); i++) {
-            if (llistaRemuntadors.get(i).getEstat().equals("En Servei")) {
+        for (int i = 0; i < _llistaRemuntadors.size(); i++) {
+            if (_llistaRemuntadors.get(i).getEstat().equals("En Servei")) {
                 return false;
             }
         }
@@ -71,13 +66,13 @@ public class LlistaRemuntadors {
     public String llistarRemuntadors(String estat) {
         String string = "";
         if (estat.equals("Tots")) {
-            for (int i = 0; i < llistaRemuntadors.size(); i++) {
-                string += llistaRemuntadors.get(i).toString();
+            for (int i = 0; i < _llistaRemuntadors.size(); i++) {
+                string += _llistaRemuntadors.get(i).toString();
             }
         } else {
-            for (int i = 0; i < llistaRemuntadors.size(); i++) {
-                if (llistaRemuntadors.get(i).getEstat().equals(estat)) {
-                    string += llistaRemuntadors.get(i).toString();
+            for (int i = 0; i < _llistaRemuntadors.size(); i++) {
+                if (_llistaRemuntadors.get(i).getEstat().equals(estat)) {
+                    string += _llistaRemuntadors.get(i).toString();
                 }
             }
         }
@@ -90,8 +85,8 @@ public class LlistaRemuntadors {
      */
     public String getNoms() {
         String string = "";
-        for (int i = 0; i < llistaRemuntadors.size(); i++) {
-            string += llistaRemuntadors.get(i).getNom() + " ";
+        for (int i = 0; i < _llistaRemuntadors.size(); i++) {
+            string += _llistaRemuntadors.get(i).getNom() + " ";
         }
 
         return string;

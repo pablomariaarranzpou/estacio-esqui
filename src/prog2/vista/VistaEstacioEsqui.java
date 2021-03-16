@@ -16,29 +16,28 @@ import prog2.model.EstacioEsqui;
 public class VistaEstacioEsqui {
 
     /* Atributs */
-    private EstacioEsqui estacio;
+    private EstacioEsqui _estacio;
 
     /* Constructor de la Vista */
     public VistaEstacioEsqui(String nomEstacio, int velocitatVent, String visibilitat) {
         // Creem un nou objecte Estació Esqui
-        this.estacio = new EstacioEsqui(nomEstacio, velocitatVent, visibilitat);
-        this.estacio.inicialitzaDadesVall2000();
+        _estacio = new EstacioEsqui(nomEstacio, velocitatVent, visibilitat);
+        _estacio.inicialitzaDadesVall2000();
     }
-       
-    /* Métodes */    
+
+    /* Métodes */
     //WRITE YOUR CODE HERE
-    
-    public String llistar_Pistas(String estat) {
-        return estacio.getLlistaPistes().llistarPistes(estat);
+    public String llistarPistas(String estat) {
+        return _estacio.getLlistaPistes().llistarPistes(estat);
     }
 
-    public void actualitzaMeteo() {
-        estacio.getLlistaRemuntadors().actualitzaEstat(estacio.getMeteo());
-        estacio.getLlistaPistes().actualitzaEstat();
+    public void actualitzarMeteo() {
+        _estacio.getLlistaRemuntadors().actualitzaEstat(_estacio.getMeteo());
+        _estacio.getLlistaPistes().actualitzaEstat();
     }
 
-    public String llistar_Remuntadors(String estat) {
-        return estacio.getLlistaRemuntadors().llistarRemuntadors(estat);
+    public String llistarRemuntadors(String estat) {
+        return _estacio.getLlistaRemuntadors().llistarRemuntadors(estat);
     }
 
     public void gestioEstacio() {
@@ -89,7 +88,7 @@ public class VistaEstacioEsqui {
     //   3. Bucle donde se trata la opcion seleccionada por el usuario
     public void gestioMenu(Scanner sc) {
         // Creación del objeto que representa el menu. El primer argumento del contructor es el nombre del menu
-        Menu<OpcionesMenu> menuEstacio = new Menu<>("Menu " + estacio.getNomEstacio(), OpcionesMenu.values());
+        Menu<OpcionesMenu> menuEstacio = new Menu<>("Menu " + _estacio.getNomEstacio(), OpcionesMenu.values());
         //Menu<OpcionesMenu> menuEstacio = new Menu<>("Menu " + estacio.getNomEstacio(), OpcionesMenu.values());
 
         // Assignar una descripción a cada una de las opciones
@@ -106,22 +105,22 @@ public class VistaEstacioEsqui {
 
             switch (opcionMenu) {
                 case M_Opcion_1_ListarPistas:
-                    System.out.println(llistar_Pistas("Tots"));
+                    System.out.println(llistarPistas("Tots"));
                     break;
                 case M_Opcion_2_ListarPistasAbiertas:
-                    System.out.println(llistar_Pistas("Oberta"));
+                    System.out.println(llistarPistas("Oberta"));
                     break;
                 case M_Opcion_3_ListarPistasCerradas:
-                    System.out.println(llistar_Pistas("Tancada"));
+                    System.out.println(llistarPistas("Tancada"));
                     break;
                 case M_Opcion_4_ListarRemontadores:
-                    System.out.println(llistar_Remuntadors("Tots"));
+                    System.out.println(llistarRemuntadors("Tots"));
                     break;
                 case M_Opcion_5_ListarRemontadoresEnServicio:
-                    System.out.println(llistar_Remuntadors("En Servei"));
+                    System.out.println(llistarRemuntadors("En Servei"));
                     break;
                 case M_Opcion_6_ListarRemontadoresFueraServicio:
-                    System.out.println(llistar_Remuntadors("Fora de Servei"));
+                    System.out.println(llistarRemuntadors("Fora de Servei"));
                     break;
                 case M_Opcion_7_ModificarEstadoNieve:
                     System.out.println("Quina pista desitja modificar?");
@@ -131,9 +130,9 @@ public class VistaEstacioEsqui {
                     System.out.println("A quin estat vol actualitzar?");
                     String actualitzar = sc.next();
 
-                    if (estacio.getLlistaPistes().getPista(nom) != null
-                            && estacio.getLlistaPistes().getPista(nom).getEstat_pista().equals(estatPista)) {
-                        estacio.getLlistaPistes().getPista(nom).setEstat_neu(actualitzar);
+                    if (_estacio.getLlistaPistes().getPista(nom) != null
+                            && _estacio.getLlistaPistes().getPista(nom).getEstatPista().equals(estatPista)) {
+                        _estacio.getLlistaPistes().getPista(nom).setEstatNeu(actualitzar);
                         System.out.println("Estat de la neu actualitzat.");
                     } else {
                         System.out.println("Pista no trobada en aquesta estació");
@@ -144,30 +143,30 @@ public class VistaEstacioEsqui {
                     String estat;
                     estat = sc.next();
                     if (estat.equals("Oberta") || estat.equals("Tancada") || estat.equals("Tots")) {
-                        System.out.println("Distància total: " + estacio.getLlistaPistes().calculaKmsPistes(estat) + " kms");
+                        System.out.println("Distància total: " + _estacio.getLlistaPistes().calculaKmsPistes(estat) + " kms");
                     } else {
                         System.out.println("Estat invàlid");
                     }
                     break;
                 case M_Opcion_9_Modificar_Vent:
                     System.out.println("Seleccioni la velocitat del vent:");
-                    estacio.getMeteo().setVent(sc.nextInt());
-                    actualitzaMeteo();
+                    _estacio.getMeteo().setVent(sc.nextInt());
+                    actualitzarMeteo();
                     System.out.println("Vent modificat correctament.");
                     break;
                 case M_Opcion_10_Modificar_Visibilitat:
-                    if (estacio.getMeteo().getVisibilitat().equals("Bona")) {
-                        estacio.getMeteo().setVisibilitat("Dolenta");
+                    if (_estacio.getMeteo().getVisibilitat().equals("Bona")) {
+                        _estacio.getMeteo().setVisibilitat("Dolenta");
                         System.out.println("Visibilitat modificada correctament a Dolenta");
                     } else {
-                        estacio.getMeteo().setVisibilitat("Bona");
+                        _estacio.getMeteo().setVisibilitat("Bona");
                         System.out.println("Visibilitat modificada correctament a Bona");
                     }
-                    actualitzaMeteo();
+                    actualitzarMeteo();
                     System.out.println("Visibilitat modificada correctament.");
                     break;
                 case M_Opcion_11_Report_Meteo:
-                    System.out.println(estacio.getMeteo().toString());
+                    System.out.println(_estacio.getMeteo().toString());
                     break;
             }
 

@@ -11,138 +11,150 @@ package prog2.model;
  */
 public class Pista {
 
-    private String nom, sector, color, estat_neu, estat_pista;
-    private float longitud;
-    private LlistaRemuntadors dependencies;
-    
+    private String _nom, _sector, _color, _estatNeu, _estatPista;
+    private float _longitud;
+    private LlistaRemuntadors _dependencies;
+
     /**
      * Constructor de la classe Pista
+     *
      * @param nom
      * @param sector
      * @param color
      * @param longitud
-     * @param estat_neu
-     * @param estat_pista 
+     * @param estatNeu
+     * @param estatPista
      */
-    public Pista(String nom, String sector, String color, float longitud, String estat_neu,
-            String estat_pista) {
-        this.nom = nom;
-        this.sector = sector;
-        this.color = color;
-        this.estat_neu = estat_neu;
-        this.estat_pista = estat_pista;
-        this.longitud = longitud;
-        this.dependencies = new LlistaRemuntadors();
+    public Pista(String nom, String sector, String color, float longitud, String estatNeu,
+            String estatPista) {
+        _nom = nom;
+        _sector = sector;
+        _color = color;
+        _estatNeu = estatNeu;
+        _estatPista = estatPista;
+        _longitud = longitud;
+        _dependencies = new LlistaRemuntadors();
     }
 
     public void actualitzaEstat() {
+        if (_dependencies.totsForaDeServei()) {
+            setEstatPista("Tancada");
+        }
+    }
 
-    }
-    
-    /**
-     * Mètode que afegeix Remuntadors (dependéncies) a una pista.
-     * @param rm 
-     */
-    public void afegirDependencia(Remuntador rm) {
-        this.dependencies.afegirRemuntador(rm);
-    }
-    
     /**
      * Getter de l'atribut nom.
-     * @return 
+     *
+     * @return
      */
     public String getNom() {
-        return nom;
+        return _nom;
     }
 
     public void setNom(String nom) {
-        this.nom = nom;
+        _nom = nom;
     }
-    
+
     /**
      * Getter de l'atribut sector.
-     * @return 
+     *
+     * @return
      */
     public String getSector() {
-        return sector;
+        return _sector;
     }
-    
+
     public void setSector(String sector) {
-        this.sector = sector;
+        _sector = sector;
     }
-    
+
     /**
      * Getter de l'atribut Color.
-     * @return 
+     *
+     * @return
      */
     public String getColor() {
-        return color;
+        return _color;
     }
 
     public void setColor(String color) {
-        this.color = color;
+        _color = color;
     }
-    
+
     /**
      * Getter de l'atribut longitud.
-     * @return 
+     *
+     * @return
      */
     public float getLongitud() {
-        return longitud;
+        return _longitud;
     }
 
     public void setLongitud(float longitud) {
-        this.longitud = longitud;
-    }
-    
-    /**
-     * Getter de l'atribut estat_neu.
-     * @return 
-     */
-    public String getEstat_neu() {
-        return estat_neu;
+        _longitud = longitud;
     }
 
-    public void setEstat_neu(String estat_neu) {
-        if (estat_neu.equals("Dura") || estat_neu.equals("Primavera")
-                || estat_neu.equals("Pols")) {
-            this.estat_neu = estat_neu;
+    /**
+     * Getter de l'atribut estat_neu.
+     *
+     * @return
+     */
+    public String getEstatNeu() {
+        return _estatNeu;
+    }
+
+    public void setEstatNeu(String estatNeu) {
+        if (estatNeu.equals("Dura") || estatNeu.equals("Primavera")
+                || estatNeu.equals("Pols")) {
+            this._estatNeu = estatNeu;
         } else {
             System.out.println("Nou estat no vàlid");
         }
     }
-    
+
     /**
      * Getter de l'atribut estat pista.
-     * @return 
+     *
+     * @return
      */
-    public String getEstat_pista() {
-        return estat_pista;
+    public String getEstatPista() {
+        return _estatPista;
     }
 
-    public void setEstat_pista(String estat_pista) {
-        this.estat_pista = estat_pista;
+    public void setEstatPista(String estat_pista) {
+        _estatPista = estat_pista;
     }
-    
+
+    /**
+     * Mètode que afegeix Remuntadors (dependéncies) a una pista.
+     *
+     * @param remuntador
+     */
+    public void afegirDependencia(Remuntador remuntador) {
+        _dependencies.afegirRemuntador(remuntador);
+    }
+
     /**
      * Getter de l'atribut dependencies.
-     * @return 
+     *
+     * @return
      */
     public LlistaRemuntadors getDependencies() {
-        return dependencies;
+        return _dependencies;
     }
 
     /**
      * Metode toString de la clase Pista que retorna un string amb la informació
      * de la pista.
-     * @return 
+     *
+     * @return
      */
     @Override
     public String toString() {
-        return "Pista: " + nom + ", Sector: " + sector + ", Color: " + color
-                + ", Estat Neu: " + estat_neu + ", Estat Pista: " + estat_pista
-                + ", Longitud: " + longitud + " Km , Dependencies: "
-                + dependencies.getNoms() + "\n";
+        return "Pista: " + _nom + ", Sector: " + _sector + ", Color: " + _color
+                + ", Estat Neu: " + _estatNeu + ", Estat Pista: " + _estatPista
+                + ", Longitud: " + _longitud + " Km , Dependencies: "
+                + _dependencies.getNoms() + "\n";
     }
-    
+
 }

@@ -10,34 +10,46 @@ package prog2.model;
  * @author arran
  */
 public class Meteo {
-    
-    private String visibilitat;
-    private int vent;
+
+    private String _visibilitat;
+    private int _vent;
 
     public Meteo(String visibilitat, int vent) {
-        this.visibilitat = visibilitat;
-        this.vent = vent;
+        if (vent < 0 || !(visibilitat.equals("Bona") && !(visibilitat.equals("Dolenta")))) {
+            System.out.println("Dade no vàlides, no s´ha pgout inicilitzar l´estació.");
+        } else {
+            _visibilitat = visibilitat;
+            _vent = vent;
+        }
     }
 
     public String getVisibilitat() {
-        return visibilitat;
+        return _visibilitat;
     }
 
     public void setVisibilitat(String visibilitat) {
-        this.visibilitat = visibilitat;
+        if (!(visibilitat.equals("Bona") && !(visibilitat.equals("Dolenta")))) {
+            System.out.println("Dade no vàlides");
+        } else {
+            _visibilitat = visibilitat;
+        }
     }
 
     public int getVent() {
-        return vent;
+        return _vent;
     }
-    
+
     public void setVent(int vent) {
-        this.vent = vent;
+        if (vent < 0) {
+            System.out.println("Dades no vàlides");
+        } else {
+            _vent = vent;
+        }
     }
 
     @Override
     public String toString() {
-        return "Meteo: " + "Visibilitat: " + visibilitat + " Velocitat del vent: " + vent + " km/h";
+        return "Meteo: " + "Visibilitat: " + _visibilitat + " Velocitat del vent: " + _vent + " km/h";
     }
-    
+
 }
