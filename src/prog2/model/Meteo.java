@@ -15,11 +15,11 @@ public class Meteo {
     private int _vent;
 
     public Meteo(String visibilitat, int vent) {
-        if (vent < 0 || !(visibilitat.equals("Bona") && !(visibilitat.equals("Dolenta")))) {
-            System.out.println("Dade no vàlides, no s´ha pgout inicilitzar l´estació.");
-        } else {
+        if (vent >= 0 || visibilitat.equals("Bona") && visibilitat.equals("Dolenta")) {
             _visibilitat = visibilitat;
             _vent = vent;
+        } else {
+            System.out.println("Dades no vàlides, no s´ha pgout inicilitzar l´estació.");
         }
     }
 
@@ -28,10 +28,10 @@ public class Meteo {
     }
 
     public void setVisibilitat(String visibilitat) {
-        if (!(visibilitat.equals("Bona") && !(visibilitat.equals("Dolenta")))) {
-            System.out.println("Dade no vàlides");
-        } else {
+        if (visibilitat.equals("Bona") || visibilitat.equals("Dolenta")) {
             _visibilitat = visibilitat;
+        } else {
+            System.out.println("Dada no vàlida.");
         }
     }
 
@@ -39,17 +39,19 @@ public class Meteo {
         return _vent;
     }
 
-    public void setVent(int vent) {
+    public boolean setVent(int vent) {
         if (vent < 0) {
             System.out.println("Dades no vàlides");
+            return false;
         } else {
             _vent = vent;
+            return true;
         }
     }
 
     @Override
     public String toString() {
-        return "Meteo: " + "Visibilitat: " + _visibilitat + " Velocitat del vent: " + _vent + " km/h";
+        return "Meteo: " + "\n\tVisibilitat: " + _visibilitat + "\n\tVelocitat del vent: " + _vent + " km/h";
     }
 
 }

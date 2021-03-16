@@ -108,7 +108,7 @@ public class Pista {
                 || estatNeu.equals("Pols")) {
             this._estatNeu = estatNeu;
         } else {
-            System.out.println("Nou estat no vàlid");
+            System.out.println("Nou estat de la neu no vàlid");
         }
     }
 

@@ -92,21 +92,32 @@ public class LlistaPistes {
     }
 
     /**
+     * Mètode que ens calcula la suma de la longitud de totes les pistes de
+     * l'estació d'esquí.
+     *
+     * @return float
+     */
+    public float calculaKmsPistesTotal() {
+        float suma = 0;
+        for (int i = 0; i < _llistaPistes.size(); i++) {
+            suma += _llistaPistes.get(i).getLongitud();
+        }
+        return suma;
+    }
+
+    /**
      * Mètode que ens calcula la suma de la longitud de totes les pistes amb un
      * estat específic de LlistaPistes.
      *
-     * @param estat
      * @return float
      */
-    public float calculaKmsPistes(String estat) {
+    public float calculaKmsPistesObertes() {
         float suma = 0;
-        
         for (int i = 0; i < _llistaPistes.size(); i++) {
-            if (_llistaPistes.get(i).getEstatPista().equals(estat)) {
+            if (_llistaPistes.get(i).getEstatPista().equals("Oberta")) {
                 suma += _llistaPistes.get(i).getLongitud();
             }
         }
-        
         return suma;
     }
 
@@ -123,5 +134,5 @@ public class LlistaPistes {
         }
         return llista;
     }
-    
+
 }

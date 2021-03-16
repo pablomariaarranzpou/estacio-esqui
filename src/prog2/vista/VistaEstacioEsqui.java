@@ -125,34 +125,26 @@ public class VistaEstacioEsqui {
                 case M_Opcion_7_ModificarEstadoNieve:
                     System.out.println("Quina pista desitja modificar?");
                     String nom = sc.next();
-                    System.out.println("Estat de la pista actual?");
-                    String estatPista = sc.next();
-                    System.out.println("A quin estat vol actualitzar?");
+                    System.out.println("A quin estat la vol actualitzar?");
                     String actualitzar = sc.next();
 
-                    if (_estacio.getLlistaPistes().getPista(nom) != null
-                            && _estacio.getLlistaPistes().getPista(nom).getEstatPista().equals(estatPista)) {
+                    if (_estacio.getLlistaPistes().getPista(nom) != null) {
                         _estacio.getLlistaPistes().getPista(nom).setEstatNeu(actualitzar);
                         System.out.println("Estat de la neu actualitzat.");
                     } else {
-                        System.out.println("Pista no trobada en aquesta estació");
+                        System.out.println("Pista " + nom + " no trobada en aquesta estació");
                     }
                     break;
                 case M_Opcion_8_CalcularTotalKms:
-                    System.out.println("Seleccioni l`estat:");
-                    String estat;
-                    estat = sc.next();
-                    if (estat.equals("Oberta") || estat.equals("Tancada") || estat.equals("Tots")) {
-                        System.out.println("Distància total: " + _estacio.getLlistaPistes().calculaKmsPistes(estat) + " kms");
-                    } else {
-                        System.out.println("Estat invàlid");
-                    }
+                    System.out.println("Distància total: " + _estacio.getLlistaPistes().calculaKmsPistesTotal() + " kms");
+                    System.out.println("Distància esquiable: " + _estacio.getLlistaPistes().calculaKmsPistesObertes() + " kms");
                     break;
                 case M_Opcion_9_Modificar_Vent:
                     System.out.println("Seleccioni la velocitat del vent:");
-                    _estacio.getMeteo().setVent(sc.nextInt());
-                    actualitzarMeteo();
-                    System.out.println("Vent modificat correctament.");
+                    if (_estacio.getMeteo().setVent(sc.nextInt())) {
+                        System.out.println("Vent modificat correctament.");
+                        actualitzarMeteo();
+                    }
                     break;
                 case M_Opcion_10_Modificar_Visibilitat:
                     if (_estacio.getMeteo().getVisibilitat().equals("Bona")) {
@@ -163,11 +155,12 @@ public class VistaEstacioEsqui {
                         System.out.println("Visibilitat modificada correctament a Bona");
                     }
                     actualitzarMeteo();
-                    System.out.println("Visibilitat modificada correctament.");
                     break;
                 case M_Opcion_11_Report_Meteo:
                     System.out.println(_estacio.getMeteo().toString());
                     break;
+                default:
+                    System.out.println("Aquesta no és una opció vàlida.");
             }
 
         } while (opcionMenu != OpcionesMenu.M_Opcion_12_Salir);

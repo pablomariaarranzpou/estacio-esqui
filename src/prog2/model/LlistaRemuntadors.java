@@ -50,7 +50,7 @@ public class LlistaRemuntadors {
      */
     public boolean totsForaDeServei() {
         for (int i = 0; i < _llistaRemuntadors.size(); i++) {
-            if (_llistaRemuntadors.get(i).getEstat().equals("En Servei")) {
+            if (_llistaRemuntadors.get(i).getEstat().equals("En servei")) {
                 return false;
             }
         }
